@@ -4,7 +4,6 @@ const app = express();
 const port = process.env.PORT || 3000; // Gunakan port dari variabel lingkungan atau default ke 3000
 
 let model = null;
-
 // Fungsi untuk memuat model dari Google Cloud Storage
 const loadModel = async () => {
   try {
