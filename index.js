@@ -1,7 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 const app = express();
-const port = process.env.PORT || 3000; // Gunakan port dari variabel lingkungan atau default ke 8080
+const port = process.env.PORT || 3000; // Gunakan port dari variabel lingkungan atau default ke 3000
 
 let model = null;
 
@@ -42,14 +42,20 @@ app.post('/predict', (req, res) => {
     return res.status(400).json({ error: 'Invalid input types' });
   }
 
-  // Prediksi berdasarkan nilai pH
+  // Simulasi prediksi menggunakan model
+  // Sesuaikan logika ini dengan model prediksi Anda
+  let score = pH; // Menggunakan pH sebagai satu-satunya faktor
+
   let prediction;
-  if (pH <= 2.2) {
+  if (score <= 2.2) {
     prediction = 'low';
-  } else if (pH <= 4.4) {
+  } else if (score <= 4.0) {
     prediction = 'medium';
-  } else {
+  } else if (score <= 7.0){
     prediction = 'high';
+  }
+  else {
+    prediction = 'invalid data';
   }
 
   res.json({ prediction });
