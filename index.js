@@ -1,9 +1,10 @@
 const express = require('express');
 const axios = require('axios');
 const app = express();
-const port = process.env.PORT || 3000; // Gunakan port dari variabel lingkungan atau default ke 3000
+const port = process.env.PORT || 8080; // Gunakan port dari variabel lingkungan atau default ke 8080
 
 let model = null;
+
 // Fungsi untuk memuat model dari Google Cloud Storage
 const loadModel = async () => {
   try {
@@ -41,14 +42,11 @@ app.post('/predict', (req, res) => {
     return res.status(400).json({ error: 'Invalid input types' });
   }
 
-  // Simulasi prediksi menggunakan model
-  // Sesuaikan logika ini dengan model prediksi Anda
-  let score = (pH + Temprature + Taste + Odor + Fat + Turbidity + Colour) / 7;
-
+  // Prediksi berdasarkan nilai pH
   let prediction;
-  if (score <= model.low_threshold) {
+  if (pH <= 2.2) {
     prediction = 'low';
-  } else if (score <= model.medium_threshold) {
+  } else if (pH <= 4.4) {
     prediction = 'medium';
   } else {
     prediction = 'high';
