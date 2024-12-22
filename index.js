@@ -4,8 +4,6 @@ const app = express();
 const port = process.env.PORT || 3000; // Gunakan port dari variabel lingkungan atau default ke 3000
 
 let model = null;
-
-// Fungsi untuk memuat model dari Google Cloud Storage
 const loadModel = async () => {
   try {
     const response = await axios.get('https://storage.googleapis.com/bucket-capstone-project/model.json');
@@ -64,3 +62,6 @@ app.post('/predict', (req, res) => {
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
+
+
+
