@@ -1,7 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 const app = express();
-const port = process.env.PORT || 3000; // Gunakan port dari variabel lingkungan atau default ke 3000
+const port = process.env.PORT || 3000; 
 
 let model = null;
 const loadModel = async () => {
