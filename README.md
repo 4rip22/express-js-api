@@ -29,15 +29,12 @@ Ikuti langkah-langkah di bawah ini untuk menjalankan proyek ini di lingkungan lo
    ```bash
    npm install express
    ```
-4. **Tambahkan File Utama:**
-   Buat file misalkan **`index.js`** 
-   ```javascript
-   ```
-5. **Jalankan Server:**
+
+4. **Jalankan Server:**
    ```bash
    node index.js
    ```
-6. **Akses API:**
+5. **Akses API:**
    Buka browser atau Postman dan akses:
    ```
 http://localhost:3000/
